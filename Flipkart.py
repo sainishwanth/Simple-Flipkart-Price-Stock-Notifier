@@ -4,7 +4,9 @@ from playsound import playsound
 
 header = {'User-Agent': "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"}
 
-def price(page, soup,URL):
+URL = input("Enter the URL: ")
+
+def price(page, soup):
     page = requests.get(URL, headers = header)
     soup = BeautifulSoup(page.content, 'html.parser')
     try:
@@ -14,7 +16,6 @@ def price(page, soup,URL):
     except:
         price(page,soup,URL)
 def main():
-    URL = input("Enter the Link: ")
     while True:
         page = requests.get(URL, headers = header)
         soup = BeautifulSoup(page.content, 'html.parser')
@@ -24,12 +25,12 @@ def main():
         except:
             pass
     print(title+"\n")
-    price_og = price(page,soup,URL)
+    price_og = price(page,soup)
     print(f"Price - {price_og}")
     price_limit = int(input("Enter the Price Threshold: "))
     sound = input("Enter path to your music: ")
     while True:
-        if(price_limit >= price(page,soup,URL)):
+        if(price_limit >= price(page,soup)):
             playsound(sound)
             break
         else:
