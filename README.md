@@ -5,10 +5,12 @@
 
 <h3>Requirements:</h3>
 <p>
-       > Python3 
-       > BeautifulSoup
-       > Requests
-       > Playsound
+      <ol> > Python3 </ol>
+      <ol> > BeautifulSoup </ol>
+      <ol> > Requests </ol>
+      <ol> > Playsound </ol>
 </p>
 ## Installation
-        git clone https://github.com/sainishwanth/Simple-Flipkart-Price-Tracker.git && pip3 install bs4 requests playsound
+ 
+    git clone https://github.com/sainishwanth/Simple-Flipkart-Price-Tracker.git && pip3 install bs4 requests playsound
+
