@@ -1,6 +1,7 @@
 from bs4 import  BeautifulSoup
 import requests
 from playsound import playsound
+import webbrowser
 
 header = {'User-Agent': "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"}
 
@@ -31,6 +32,7 @@ def main():
     sound = input("Enter path to your music: ")
     while True:
         if(price_limit >= price(page,soup)):
+            webbrowser.open(URL)
             playsound(sound)
             break
         else:
