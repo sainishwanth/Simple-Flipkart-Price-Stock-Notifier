@@ -25,7 +25,7 @@ def stock(page,soup):
         stock = soup.find("div", class_ = "_16FRp0").get_text().strip()
         return stock
     except:
-        stock(page,soup)
+        return None
 
 def main():
     while True:
@@ -40,7 +40,7 @@ def main():
     inpt = int(input("1.Price Notifier\n2.Stock Notifier: "))
     price_og = price(page,soup)
     print(f"Price - {price_og}")
-    sound = input("Enter path to your music: ")
+    sound = input("Enter path to your music(Enter to skip): ")
     if inpt == 1:
         price_limit = int(input("Enter the Price Threshold: "))
         while True:
@@ -54,9 +54,12 @@ def main():
                 continue
     elif inpt == 2:
         while True:
-            if not stock(page,soup):
+            if stock(page,soup) ==  None:
                 webbrowser.open(URL)
-                playsound(sound)
+                try:
+                    playsound(sound)
+                except:
+                    pass
                 break
             else:
                 time.sleep(10)
