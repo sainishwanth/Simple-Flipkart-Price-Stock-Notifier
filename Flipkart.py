@@ -2,6 +2,7 @@ import webbrowser
 import time
 import requests
 import os
+from os import path
 from bs4 import  BeautifulSoup
 from playsound import PlaysoundException, playsound
 
@@ -39,7 +40,13 @@ def main():
             pass
     print("\n"+title+"\n")
     inpt = int(input("1.Price Notifier\n2.Stock Notifier: "))
-    path = os.getcwd() + '\mixkit-morning-clock-alarm-1003.wav'
+    curr_path = os.getcwd()
+    try:
+        path.exists(curr_path + '/mixkit-morning-clock-alarm-1003.wav')
+        path_var = curr_path + '/mixkit-morning-clock-alarm-1003.wav'
+    except:
+        path.exists(curr_path + '\mixkit-morning-clock-alarm-1003.wav')
+        path_var = curr_path + '\mixkit-morning-clock-alarm-1003.wav'
     price_og = price(page,soup)
     print(f"Price - {price_og}")
     if inpt == 1:
@@ -47,13 +54,7 @@ def main():
         while True:
             if price_limit >= price(page,soup):
                 webbrowser.open(URL)
-                try:
-                    playsound(path)
-                except PlaysoundException:
-                    path = os.getcwd() + '/mixkit-morning-clock-alarm-1003.wav'
-                    playsound(path)
-                except:
-                    pass
+                playsound(path_var)
             else:
                 time.sleep(10)
                 print("Running..")
@@ -66,8 +67,7 @@ def main():
                 try:
                     playsound(path)
                 except PlaysoundException:
-                    path = os.getcwd() + '/mixkit-morning-clock-alarm-1003.wav'
-                    playsound(path)
+                    playsound(path_var)
                 except:
                     pass
             else:
