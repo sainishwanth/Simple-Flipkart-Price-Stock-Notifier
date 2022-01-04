@@ -10,7 +10,8 @@
       <ol> > Requests </ol>
       <ol> > Playsound </ol>
 </p>
-## Installation
+
+# Installation
  
     git clone https://github.com/sainishwanth/Simple-Flipkart-Price-Tracker.git && pip3 install bs4 requests playsound
 
