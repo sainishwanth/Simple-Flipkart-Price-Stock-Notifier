@@ -64,12 +64,7 @@ def main():
         while True:
             if stock(page,soup) is  None:
                 webbrowser.open(URL)
-                try:
-                    playsound(path)
-                except PlaysoundException:
-                    playsound(path_var)
-                except:
-                    pass
+                playsound(path_var)
             else:
                 time.sleep(10)
                 print("Running..")
