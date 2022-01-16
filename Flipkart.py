@@ -42,11 +42,11 @@ def main():
     inpt = int(input("1.Price Notifier\n2.Stock Notifier: "))
     curr_path = os.getcwd()
     try:
-        path.exists(curr_path + '/mixkit-morning-clock-alarm-1003.wav')
-        path_var = curr_path + '/mixkit-morning-clock-alarm-1003.wav'
+        path.exists(curr_path + '/alarm.wav')
+        path_var = curr_path + '/alarm.wav'
     except:
-        path.exists(curr_path + '\mixkit-morning-clock-alarm-1003.wav')
-        path_var = curr_path + '\mixkit-morning-clock-alarm-1003.wav'
+        path.exists(curr_path + '\alarm.wav')
+        path_var = curr_path + '\alarm.wav'
     price_og = price(page,soup)
     print(f"Price - {price_og}")
     if inpt == 1:
