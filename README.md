@@ -1,4 +1,4 @@
-<h1>Flipkart Price Tracker with python</h1>
+<h1>Flipkart Price Notifer with python</h1>
 
 <h3>Uses</h3>
        <p> Play's an alarm when the price of the item drops below your given threshold</p>
