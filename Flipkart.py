@@ -1,3 +1,4 @@
+#Necessary Libraries
 import webbrowser
 import time
 import requests
@@ -7,7 +8,7 @@ from bs4 import BeautifulSoup
 from playsound import playsound
 
 header = {'User-Agent': "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"}
-path1 = os.getcwd()
+path1 = os.getcwd()  #Path for playing the music
 URL = input("Enter the URL: ")
 
 class item():  #Class which contains methods and attributes of the product
