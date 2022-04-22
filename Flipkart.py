@@ -1,6 +1,6 @@
 #Necessary Libraries
-import webbrowser
-import time
+import webbrowser  #To Open
+import time    #To put the operation on sleep when condition is not met
 import requests
 import os
 from os import path
@@ -16,7 +16,7 @@ class item():  #Class which contains methods and attributes of the product
         self.page = page
         self.URL = URL
         self.soup = soup
-    
+
     def price(self): #Method to retrieve the price of the item
         self.page = requests.get(URL, headers = header)
         self.soup = BeautifulSoup(self.page.content, 'html.parser')
@@ -26,7 +26,7 @@ class item():  #Class which contains methods and attributes of the product
             return int(price[1:])
         except:
             pass
-    
+
     def stock(self):  #Method to check if the item is in stock
         self.page = requests.get(URL, headers = header)
         self.soup = BeautifulSoup(self.page.content, 'html.parser')
@@ -35,7 +35,7 @@ class item():  #Class which contains methods and attributes of the product
             return stock
         except:
             return None
-        
+
     @staticmethod
     def music(path1):  #Method to Play Music. (Not an attribute of Product but welp)
         try:
@@ -43,10 +43,10 @@ class item():  #Class which contains methods and attributes of the product
             path1 = path1 + '/alarm.wav'
         except:
             path.exists(path1 + '\alarm.wav')    #Windows Convention of file Managament
-            path1 = path1 + '\alarm.wav'      
-        webbrowser.open(URL)                     #Opening the Product Page 
+            path1 = path1 + '\alarm.wav'
+        webbrowser.open(URL)                     #Opening the Product Page
         playsound(path1)                         #Playing the "Music" i.e Alarm when triggered
-            
+
 
 def main():
     while True:
@@ -64,7 +64,7 @@ def main():
     if inpt == 1:
         price_limit = int(input("Enter the Price Threshold: "))
         while True:
-            
+
             if price_limit >= product.price(): #Loop that keeps checking for if the price has fallen below the price set by the user
                 product.music(path1)
             else:
